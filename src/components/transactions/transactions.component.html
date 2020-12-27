@@ -1,0 +1,30 @@
+<div>
+    <h1>Transaction List</h1>
+</div>
+<div>    
+    <h1 class='text'>{{title}}</h1>
+      <div class="panel-group" id="accordion">
+          <div class="card" *ngFor='let transaction of transactions;index as i'>
+              <div class="card-header">
+                  <div>
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}"  class="{{transaction.transactionType}}">
+                        Type: {{transaction.transactionType | titlecase}} Amount: ${{transaction.amount}}
+                        </a>
+                  </div>
+              </div>
+          
+              <div id="collapse{{i}}" class="card-body collapse">
+                <div>
+                    <span>Transaction Id: {{transaction.transactionId}}</span>
+                </div>
+                <div>
+                    <span>Amount: ${{transaction.amount}}</span>
+                </div>
+                <div>
+                    <span>Type: {{transaction.transactionType | titlecase}}</span>
+                </div>   
+              </div>
+          </div>
+    </div>
+</div>
+
